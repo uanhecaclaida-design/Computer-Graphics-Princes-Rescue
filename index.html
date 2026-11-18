@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Prince's Rescue — Interactive Adventure</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <nav class="topnav">
+    <a href="index.html" class="brand" style="text-decoration:none">👑 The Prince's Rescue</a>
+    <span class="nav-links">
+      <a href="2d.html"><button class="btn btn-primary">🛡️ 2D Adventure</button></a>
+      <a href="3d.html"><button class="btn btn-pink">🏰 3D Adventure</button></a>
+    </span>
+  </nav>
+
+  <!-- Hero banner -->
+  <header class="hero">
+    <div class="stars" id="stars"></div>
+    <div class="clouds" id="clouds"></div>
+    <div class="container">
+      <h1>The <span class="gold-word">Prince's</span> Rescue</h1>
+      <p class="tagline">A tale of courage, wit, and a princess waiting in a tower.</p>
+      <div class="dialogue-box">
+        <span class="dialogue-speaker">James Arthur</span>
+        <p class="dialogue-text" id="heroDialogue"> Greetings, traveler! I am James Arthur. Will you join my quest?</p>
+      </div>
+      <div class="adventure-row">
+        <a href="2d.html"><button class="btn btn-primary adventure-btn">🛡️ 2D Adventure</button></a>
+        <a href="3d.html"><button class="btn btn-pink   adventure-btn">🏰 3D Adventure</button></a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <h2 class="section-title">Meet the Characters</h2>
+    <p class="section-sub">Original heroes — no copyrighted faces here.</p>
+    <div class="card-grid">
+      <article class="card prince">
+        <div class="avatar">🤴</div>
+        <h3>James Arthur</h3><span class="role">The Prince</span>
+        <p>Brave, funny and kind. He wears a royal-blue cape and a gold crown, and sets off to rescue the princess armed with little more than a quick mind.</p>
+      </article>
+      <article class="card princess">
+        <div class="avatar">👸🏾</div>
+        <h3>Claida Violet</h3><span class="role">The Princess</span>
+        <p>Smart and calm, with dark skin and a crown of curly hair. She cheers her hero on from the tower window and waits for the day wit wins over brawn.</p>
+      </article>
+      <article class="card giant">
+        <div class="avatar">🧌</div>
+        <h3>The Giant</h3><span class="role">Gate Guardian</span>
+        <p>Big and intimidating, but never violent. He tests every traveler with three riddles. Outsmart him and he laughs and steps aside.</p>
+      </article>
+    </div>
+
+    <h2 class="section-title">The Story</h2>
+    <p class="section-sub">Six chapters from the road to the tower.</p>
+    <div class="card" style="max-width:760px;margin:0 auto">
+      <p style="line-height:1.75">
+        Prince <strong>James Arthur</strong> walks through a rolling landscape, leaps over a fallen log,
+        and reaches the castle gate where a great <strong>Giant</strong> blocks the way.
+        The giant fights not with fists but with <strong>riddles</strong> — answer three correctly and
+        he laughs and lets the prince pass. Get one wrong and you lose a heart; lose all three hearts
+        and it is Game Over (until you bravely try again). Answer all three correctly and a
+        <em>Congratulations</em> popup celebrates your wit before the prince rushes to
+        <strong>Princess Claida Violet</strong> and they celebrate together — the kingdom is saved!
+      </p>
+    </div>
+
+    <h2 class="section-title">Behind the Magic</h2>
+    <p class="section-sub">The computer-graphics techniques powering each version.</p>
+    <div class="card-grid">
+      <div class="card">
+        <h3>2D — Canvas API</h3>
+        <p>Characters drawn from shapes, moved with <em>transforms</em>. A delta-time
+        <em>requestAnimationFrame</em> loop keeps motion smooth; easing + gravity give the jump arc
+        a natural feel. A <em>particle system</em> rains confetti during the celebration.</p>
+      </div>
+      <div class="card">
+        <h3>3D — Three.js</h3>
+        <p>Characters built from primitive geometries in a <em>scene graph</em>.
+        Ambient + directional <em>lighting</em> with <em>shadows</em> and fog give depth.
+        OrbitControls let you rotate and zoom. Camera <em>tweens</em> into the reunion scene.</p>
+      </div>
+      <div class="card">
+        <h3>Shared Riddles</h3>
+        <p>One <code>riddles.js</code> feeds both adventures — 7 riddles, 3 picked at random each
+        playthrough, so Replay feels fresh. Correct answer → 🎉 popup. Wrong → lose a heart popup.
+        All three right → celebration zoom.</p>
+      </div>
+    </div>
+
+    <div class="spacer"></div>
+    <div class="adventure-row">
+      <a href="2d.html"><button class="btn btn-primary adventure-btn">🛡️ Start 2D Adventure</button></a>
+      <a href="3d.html"><button class="btn btn-pink   adventure-btn">🏰 Start 3D Adventure</button></a>
+    </div>
+
+  </main>
+
+ <footer>
+  <div class="footer-links">
+    <a href="index.html">🏠 Home</a>
+    <a href="2d.html">🛡️ 2D Adventure</a>
+    <a href="3d.html">🏰 3D Adventure</a>
+  </div>
+  <p>Created by <strong>Claida Jossias Uanheca</strong> · Nilai University, Faculty of Robotics and Data Sciences</p>
+  <p>Built with HTML, CSS &amp; JavaScript · Canvas 2D · Three.js · Computer Graphics course project · 2026</p>
+  <p class="footer-note">Original characters and artwork. No copyrighted material.</p>
+</footer>
+
+  <script src="js/riddles.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    /* Animated stars */
+    (function(){
+      const s=document.getElementById('stars');
+      for(let i=0;i<48;i++){
+        const e=document.createElement('span'); e.className='star';
+        e.style.left=Math.random()*100+'%'; e.style.top=Math.random()*70+'%';
+        e.style.animationDelay=(Math.random()*3)+'s';
+        e.style.transform='scale('+(0.5+Math.random())+')';
+        s.appendChild(e);
+      }
+      /* Animated clouds */
+      const c=document.getElementById('clouds');
+      for(let i=0;i<5;i++){
+        const el=document.createElement('span'); el.className='cloud';
+        const w=90+Math.random()*130;
+        el.style.width=w+'px'; el.style.height=(w*.4)+'px';
+        el.style.top=(8+Math.random()*50)+'%';
+        el.style.animationDuration=(26+Math.random()*26)+'s';
+        el.style.animationDelay=(-Math.random()*30)+'s';
+        el.style.opacity=0.5+Math.random()*.4;
+        c.appendChild(el);
+      }
+    })();
+    // Small delay ensures Google Fonts are applied before the typewriter starts
+    setTimeout(startHeroTypewriter, 300);
+  </script>
+</body>
+</html>

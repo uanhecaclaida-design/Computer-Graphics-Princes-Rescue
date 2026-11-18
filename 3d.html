@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3D Adventure — The Prince's Rescue</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <nav class="topnav">
+    <a href="index.html" class="brand" style="text-decoration:none">👑 The Prince's Rescue</a>
+    <span class="nav-links">
+      <a href="index.html"><button class="btn btn-ghost">🏠 Home</button></a>
+      <a href="2d.html"><button class="btn btn-primary">🛡️ Go 2D</button></a>
+    </span>
+  </nav>
+
+  <!-- Stage -->
+  <div class="stage-wrap">
+    <div class="stage" id="stage3d">
+      <canvas id="threeCanvas"></canvas>
+      <!--
+        The StageUI (built by animation3d.js via main.js) appends into #stage3d:
+          .hud            — story label + hearts
+          .stage-dialogue — dialogue bubble
+          .riddle-panel   — riddle card
+          .result-popup   — congratulations / try-again / win popups
+          .overlay.win-ov — win full-stage overlay
+          .overlay.go-ov  — game-over full-stage overlay
+      -->
+    </div>
+  </div>
+
+  <!-- Control bar (populated by StageUI) -->
+  <div class="control-bar" id="controls3d" style="max-width:1200px;margin:12px auto 0"></div>
+
+  <!-- Keyboard shortcuts hint -->
+  <p style="text-align:center;color:#6b6480;font-size:.8rem;margin:8px 0 4px">
+    Keyboard: <kbd>W</kbd> walk &nbsp;·&nbsp; <kbd>J</kbd> jump &nbsp;·&nbsp; <kbd>V</kbd> wave &nbsp;·&nbsp;
+    <kbd>Space</kbd> pause &nbsp;·&nbsp; <kbd>R</kbd> replay &nbsp;·&nbsp; <kbd>1</kbd>–<kbd>4</kbd> answer riddle
+  </p>
+  <p style="text-align:center;color:#6b6480;font-size:.78rem;margin-bottom:4px">
+    🖱️ Drag to orbit · Scroll to zoom · Right-drag to pan
+  </p>
+
+ <footer>
+  <div class="footer-links">
+    <a href="index.html">🏠 Home</a>
+    <a href="2d.html">🛡️ Try the 2D Adventure</a>
+  </div>
+  <p>The Prince's Rescue — 3D Three.js Adventure</p>
+  <p>Three.js · scene graph · lighting &amp; shadows · OrbitControls · camera tween · particle system</p>
+  <p>Created by <strong>Claida Jossias Uanheca</strong> · Nilai University · Computer Graphics course project · 2026</p>
+</footer>
+
+  <!-- Three.js (pinned r128) from CDN, then shared logic, then 3D engine -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  <script src="js/riddles.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/animation3d.js"></script>
+</body>
+</html>
